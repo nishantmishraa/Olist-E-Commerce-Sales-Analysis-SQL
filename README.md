@@ -1,41 +1,105 @@
-# 🛒 E-Commerce Business Analytics — SQL + Power BI
+# 🛒 Olist E-Commerce Sales Analysis
 
-**End-to-end business analytics project** using the Brazilian Olist E-Commerce dataset.  
-Answers real business questions using advanced SQL and visualizes KPIs in Power BI.
+An end-to-end **e-commerce business analytics project** built using the Brazilian Olist E-Commerce dataset. I used **SQL to analyze sales, customers, products, sellers, payments, and delivery performance**, and **Power BI to visualize key business metrics and insights**.
+
+The project focuses on answering practical business questions that an e-commerce company could use to understand its customers, revenue, sellers, and operations.
 
 ---
 
-## 🎯 Business Problem
+## 🎯 Business Questions
 
-An e-commerce company wants to understand:
-- Which product categories drive 80% of revenue? (Pareto Analysis)
-- Which customer segments are most valuable? (RFM Segmentation)
-- Where are orders getting delayed in the supply chain?
-- What causes revenue decline in certain months?
-- Which sellers are underperforming?
+The analysis focuses on questions such as:
+
+* Which product categories generate the most revenue?
+* Which customers are the most valuable?
+* How do sales change over time?
+* Where are delivery delays occurring?
+* Which sellers are performing well or poorly?
+* Which customers are likely to be retained?
+* What factors are associated with cancellations and delayed orders?
+
+---
+
+## 📊 Analysis Performed
+
+### Revenue & Product Analysis
+
+* Analyzed revenue by product category and time period.
+* Performed Pareto analysis to identify categories contributing the majority of revenue.
+* Compared product and category performance.
+
+### Customer Analysis
+
+* Performed **RFM (Recency, Frequency, Monetary) segmentation**.
+* Identified high-value customer segments.
+* Analyzed customer purchasing and retention patterns.
+* Performed cohort analysis to understand customer retention over time.
+
+### Delivery & Operations Analysis
+
+* Analyzed order delivery times and delays.
+* Compared delivery performance across locations.
+* Investigated patterns in delayed and cancelled orders.
+
+### Seller Performance
+
+* Compared sellers using revenue, orders, ratings, and cancellation metrics.
+* Ranked sellers using SQL window functions.
+* Identified underperforming seller segments.
+
+---
+
+## 🧠 SQL Techniques Used
+
+* CTEs
+* Window Functions
+* Multi-table JOINs
+* Subqueries
+* CASE statements
+* Aggregations and GROUP BY
+* Date and time functions
+* RANK, DENSE_RANK, LAG, LEAD, ROW_NUMBER
+* Stored Procedures
+* Indexing
+
+---
+
+## 📈 Power BI Dashboard
+
+The SQL analysis was used to build an interactive Power BI dashboard covering:
+
+* Revenue and order KPIs
+* Sales trends
+* Product category performance
+* Customer segmentation
+* Seller performance
+* Delivery analysis
+* Interactive filters and drill-through analysis
+
+**Power BI:** Star Schema, DAX, KPI Cards, Slicers, Drill-through
 
 ---
 
 ## 📁 Project Structure
 
-```
-ecommerce-sql-analytics/
+```text
+Olist-E-Commerce-Sales-Analysis-SQL/
 │
 ├── sql/
-│   ├── 01_schema_setup.sql          # Database schema & table creation
-│   ├── 02_data_exploration.sql      # EDA queries
-│   ├── 03_revenue_analysis.sql      # Revenue & Pareto analysis
-│   ├── 04_customer_rfm.sql          # RFM segmentation (Window Functions)
-│   ├── 05_delivery_analysis.sql     # Supply chain & delay analysis
-│   ├── 06_seller_performance.sql    # Seller KPI ranking
-│   ├── 07_cohort_analysis.sql       # Customer cohort retention
-│   └── 08_stored_procedures.sql     # Reusable stored procedures
+│   ├── 01_schema_setup.sql
+│   ├── 02_data_exploration.sql
+│   ├── 03_revenue_analysis.sql
+│   ├── 04_customer_rfm.sql
+│   ├── 05_delivery_analysis.sql
+│   ├── 06_seller_performance.sql
+│   ├── 07_cohort_analysis.sql
+│   └── 08_stored_procedures.sql
 │
 ├── data/
-│   └── README.md                    # How to download Olist dataset
+│   └── README.md
 │
 ├── powerbi/
-│   └── README.md                    # Power BI dashboard guide
+│   └── README.md
 │
 └── README.md
 ```
@@ -44,63 +108,66 @@ ecommerce-sql-analytics/
 
 ## 🗄️ Dataset
 
-**Source:** [Olist Brazilian E-Commerce — Kaggle](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)  
-**Size:** 100,000+ orders | 9 tables | 2016–2018
+**Olist Brazilian E-Commerce Public Dataset**
 
-**Tables Used:**
-| Table | Description |
-|---|---|
-| olist_orders | Order status, timestamps |
-| olist_order_items | Products, prices, freight |
-| olist_customers | Customer location |
-| olist_products | Product categories |
-| olist_sellers | Seller location |
-| olist_order_payments | Payment methods, values |
-| olist_order_reviews | Customer ratings |
+* 100,000+ orders
+* 9 related tables
+* Data from 2016–2018
+* Customer, order, product, seller, payment, review, and delivery information
 
----
-
-## 🔑 Key SQL Techniques Used
-
-| Technique | Where Used |
-|---|---|
-| CTEs (WITH clause) | Revenue analysis, RFM, Cohort |
-| Window Functions (RANK, DENSE_RANK, LAG, LEAD, ROW_NUMBER) | RFM, Seller ranking, MoM growth |
-| Multi-table JOINs (5+ tables) | All business queries |
-| Subqueries & Correlated Subqueries | Pareto analysis |
-| CASE WHEN | Customer segmentation |
-| GROUP BY + HAVING | Category performance |
-| DATE functions | Cohort, delivery analysis |
-| Stored Procedures | Reusable KPI reports |
-| Indexes | Query optimization |
-
----
-
-## 📊 Business Insights Delivered
-
-1. **Top 5 categories contribute 62% of total revenue** — Pareto rule confirmed
-2. **Average delivery delay: 12 days** — São Paulo orders 3x faster than northern states
-3. **Champions segment (RFM Score 555)** — 8% of customers, 34% of revenue
-4. **Month-over-month revenue dropped 18% in Sep 2017** — traced to seller stockout
-5. **Bottom 20% sellers have 4.2x higher cancellation rate** than top performers
+The dataset was originally published by **Olist** and is available through Kaggle.
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **SQL:** MySQL / PostgreSQL
-- **Visualization:** Power BI (Star Schema, DAX, Drill-Through)
-- **Python:** Pandas (data loading helper script)
-- **Tools:** MySQL Workbench / DBeaver
+| Tool                          | Purpose                                      |
+| ----------------------------- | -------------------------------------------- |
+| **MySQL / PostgreSQL**        | Data analysis and business queries           |
+| **Power BI**                  | Dashboard and visualization                  |
+| **Python / Pandas**           | Data loading and supporting data preparation |
+| **MySQL Workbench / DBeaver** | SQL development                              |
 
 ---
 
-## ▶️ How to Run
+## 🚀 How to Run
 
-```bash
-# 1. Download dataset from Kaggle (see data/README.md)
-# 2. Run schema setup
-mysql -u root -p ecommerce < sql/01_schema_setup.sql
-# 3. Load data (use Python helper or MySQL LOAD DATA)
-# 4. Run analysis queries in order (02 → 08)
+### 1. Get the Dataset
+
+Download the Olist Brazilian E-Commerce dataset and place the CSV files in the `data/` directory.
+
+### 2. Set Up the Database
+
+Run:
+
+```sql
+01_schema_setup.sql
 ```
+
+to create the required database tables.
+
+### 3. Load the Data
+
+Load the Olist CSV files into the corresponding tables using MySQL or another supported SQL environment.
+
+### 4. Run the Analysis
+
+Run the SQL scripts in order:
+
+```text
+02 → 03 → 04 → 05 → 06 → 07 → 08
+```
+
+The queries progressively cover data exploration, revenue analysis, customer segmentation, delivery performance, seller analysis, cohort analysis, and reusable KPI procedures.
+
+---
+
+## 💡 Key Takeaways
+
+This project helped me practice taking a **raw relational dataset and turning it into business-focused analysis**.
+
+The main workflow was:
+
+**Raw Data → Database → SQL Analysis → Business Insights → Power BI Dashboard**
+
+The project demonstrates my ability to work with relational data, write analytical SQL queries, build reusable datasets, and communicate findings through interactive dashboards.
